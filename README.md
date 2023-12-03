@@ -1,4 +1,4 @@
-[https://san9408.github.io/landing-page/index.html]
+https://san9408.github.io/landing-page/index.html
 
 # Frontend Mentor - News homepage
 
