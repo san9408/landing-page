@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="styles1.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,800;1,100;1,200;1,300;1,400;1,700;1,800&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | News homepage</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+<!-- <div class="cont">
+  <div class="h">header</div>
+  <div class="i">img</div>
+  <div class="s1">section</div>
+  <div class="a">article</div>
+  <div class="s2">section</div>
+</div> -->
+
+<div class="mobile-menu visibleFalse" id="mobile-menu">
+  <div class="close-icon-box">
+    <img src="/assets/images/icon-menu-close.svg" alt="" id="icon-menu-close">
+  </div>
+  <nav>
+    <a href="">Home</a>
+    <a href="">New</a>
+    <a href="">Popular</a>
+    <a href="">Trending</a>
+    <a href="">Categories</a>
+  </nav>
+</div>
+
+<div class="modal visibleFalse" id="modal"></div>
+
+<div class="main-container">
+  <header class="page-header">
+    <img class="img-logo" src="/assets/images/logo.svg" alt="logo">
+    <img src="/assets/images/icon-menu.svg" alt="" class="burger-menu visibleFalse" id="burger-menu-icon">
+    <nav calss="nav-bar-desktop" id="nav-bar-desktop">
+      <a href="">Home</a>
+      <a href="">New</a>
+      <a href="">Popular</a>
+      <a href="">Trending</a>
+      <a href="">Categories</a>
+    </nav>
+  </header>
+
+  <figure class="img-container">
+    <img class="context-img" id="main-img" src="assets/images/image-web-3-desktop.jpg" alt="promo image">
+  </figure>
+
+  <aside class="news-panel">
+    <h2>New</h2> 
+    <ul>
+      <li>
+        <h3><a href="">Hydrogen VS Electric Cars</a></h3>
+        <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+      </li>
+      <li>
+        <h3><a href="">The Downsides of AI Artistry</a></h3>
+        <p>What are the possible adverse effects of on-demand AI image generation?</p>
+      </li>
+      <li>
+        <h3><a href="">Is VC Funding Drying Up?</a></h3>
+        <p>Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+      </li>
+    </ul> 
+  </aside>
+
+  <h1 class="article-title">The Bright Future of Web 3.0?</h1>
+
+  <article class="context-article">
+    <p class="main-text">
+      We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. 
+      But is it really fulfilling its promise?
+    </p>
+    <button class="primary-button">READ MORE</button>
+  </article>
+
+  <!-- <div class="card-section"> -->
+    <div class="card card1">
+      <div class="card-img-container">
+        <img src="/assets/images/image-retro-pcs.jpg" alt="descriptive image">
+      </div>
+      <div class="card-content-container">
+        <h4>01</h4>
+        <h5>Reviving Retro PCs</h5>
+        <p>What happens when old PCs are given modern upgrades?</p>
+      </div>
+    </div>
+    <div class="card card2">
+      <div class="card-img-container">
+        <img src="/assets/images/image-top-laptops.jpg" alt="descriptive image">
+      </div>
+      <div class="card-content-container">
+        <h4>02</h4>
+        <h5>Top 10 Laptops of 2022</h5>
+        <p>Our best picks for various needs and budgets.</p>
+      </div>
+    </div>
+    <div class="card card3">
+      <div class="card-img-container">
+        <img src="/assets/images/image-gaming-growth.jpg" alt="descriptive image">
+      </div>
+      <div class="card-content-container">
+        <h4>03</h4>
+        <h5>The Growth of Gaming</h5>
+        <p>How the pandemic has sparked fresh opportunities.</p>
+      </div>
+    </div>
+  <!-- </div> -->
+  
+</div>
+
+
+</body>
+
+<script>
+
+let promoImg = document.getElementById('main-img')
+let burgerMenu = document.getElementById('burger-menu-icon')
+let navDesktop = document.getElementById('nav-bar-desktop')
+let mobileMenu = document.getElementById('mobile-menu')
+let modalMenu = document.getElementById('modal')
+let iconMenuClose = document.getElementById('icon-menu-close')
+
+function mainImage(ws) {
+  if (ws < 400) {
+    promoImg.src = 'assets/images/image-web-3-mobile.jpg'
+    burgerMenu.classList.remove('visibleFalse')
+    navDesktop.classList.add('visibleFalse')
+    document.body.classList.remove('stop-scrolling')
+  } else {
+    promoImg.src = 'assets/images/image-web-3-desktop.jpg'
+    burgerMenu.classList.add('visibleFalse')
+    navDesktop.classList.remove('visibleFalse')
+    mobileMenu.classList.add('visibleFalse')
+    modalMenu.classList.add('visibleFalse')
+  }
+}
+
+function hideMenu() {
+    console.log(mobileMenu)
+    mobileMenu.classList.add('visibleFalse')
+    modalMenu.classList.add('visibleFalse')
+    document.body.classList.remove('stop-scrolling')
+}
+
+function showMenu() {
+    mobileMenu.classList.remove('visibleFalse')
+    modalMenu.classList.remove('visibleFalse')
+    document.body.classList.add('stop-scrolling')
+}
+
+window.addEventListener('load', function(){
+    let winSize = window.innerWidth
+    mainImage(winSize)
+})
+
+window.addEventListener('resize', function(){
+    let winSize = window.innerWidth
+    mainImage(winSize)
+})
+
+iconMenuClose.addEventListener('click', hideMenu)
+burgerMenu.addEventListener('click', showMenu)
+
+</script>
+
+</html>
